@@ -8,7 +8,7 @@ from webservices.sample import SampleObject, SampleImagesObject
 from webservices.subsample import SubsampleObject, SubsampleTableObject, SubsampleImagesTableObject
 from webservices.chemicalanalysis import ChemicalAnalysisObject, ChemicalAnalysisTableObject
 from webservices.db import MetPet
-from tastyapi.models import Sample, ChemicalAnalyses
+from api.models import Sample, ChemicalAnalyses
 
 
 #direct stdout to stderr so that it is logged by the webserver

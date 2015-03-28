@@ -1,7 +1,7 @@
 [
     {
         "pk": 1,
-        "model": "tastyapi.User",
+        "model": "api.User",
         "fields": {
             "version": 1,
             "name": "Sibel Adali",
@@ -11,7 +11,7 @@
     },
     {
         "pk": 2,
-        "model": "tastyapi.User",
+        "model": "api.User",
         "fields": {
             "version": 1,
             "name": "John Doe",
@@ -21,7 +21,7 @@
     },
     {
         "pk": 3,
-        "model": "tastyapi.User",
+        "model": "api.User",
         "fields": {
             "version": 1,
             "name": "Jane Doe",

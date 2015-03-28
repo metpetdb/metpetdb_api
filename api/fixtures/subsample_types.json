@@ -1,28 +1,28 @@
 [
     {
         "pk": 1,
-        "model": "tastyapi.subsampletype",
+        "model": "api.subsampletype",
         "fields": {
             "subsample_type": "Thin Section"
         }
     },
     {
         "pk": 2,
-        "model": "tastyapi.subsampletype",
+        "model": "api.subsampletype",
         "fields": {
             "subsample_type": "Polished Thin Section"
         }
     },
     {
         "pk": 3,
-        "model": "tastyapi.subsampletype",
+        "model": "api.subsampletype",
         "fields": {
             "subsample_type": "Rock Chip"
         }
     },
     {
         "pk": 4,
-        "model": "tastyapi.subsampletype",
+        "model": "api.subsampletype",
         "fields": {
             "subsample_type": "Mineral Separate"
         }

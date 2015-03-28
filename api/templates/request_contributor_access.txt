@@ -14,4 +14,4 @@ Professional URL: {{ user.professional_url }}
 
 Research interests: {{ user.research_interests }}
 
-Click this link to confirm: {{ host_name }}{% url 'tastyapi.views.grant_contributor_access' user.contributor_code %}
+Click this link to confirm: {{ host_name }}{% url 'api.views.grant_contributor_access' user.contributor_code %}

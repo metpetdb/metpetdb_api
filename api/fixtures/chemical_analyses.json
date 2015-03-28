@@ -1,7 +1,7 @@
 [
     {
         "pk": 1,
-        "model": "tastyapi.chemicalanalyses",
+        "model": "api.chemicalanalyses",
         "fields": {
             "user": 1,
             "mineral": 34,
@@ -27,7 +27,7 @@
     },
     {
         "pk": 2,
-        "model": "tastyapi.chemicalanalyses",
+        "model": "api.chemicalanalyses",
         "fields": {
             "user": 1,
             "mineral": 34,
@@ -53,7 +53,7 @@
     },
     {
         "pk": 3,
-        "model": "tastyapi.chemicalanalyses",
+        "model": "api.chemicalanalyses",
         "fields": {
             "user": 1,
             "mineral": 127,

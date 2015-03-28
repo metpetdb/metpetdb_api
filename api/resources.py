@@ -367,20 +367,20 @@ class UserResource(BaseResource):
 
 
 class SampleResource(VersionedResource, FirstOrderResource):
-    user = fields.ToOneField("tastyapi.resources.UserResource", "user", full=True)
-    rock_type = fields.ToOneField("tastyapi.resources.RockTypeResource",
+    user = fields.ToOneField("api.resources.UserResource", "user", full=True)
+    rock_type = fields.ToOneField("api.resources.RockTypeResource",
                                   "rock_type", full=True)
-    minerals = fields.ToManyField("tastyapi.resources.MineralResource",
+    minerals = fields.ToManyField("api.resources.MineralResource",
                                   "minerals", full=True)
     metamorphic_grades = fields.ToManyField(
-                                "tastyapi.resources.MetamorphicGradeResource",
+                                "api.resources.MetamorphicGradeResource",
                                 "metamorphic_grades", full=True)
     metamorphic_regions = fields.ToManyField(
-                                "tastyapi.resources.MetamorphicRegionResource",
+                                "api.resources.MetamorphicRegionResource",
                                 "metamorphic_regions", full=True)
-    regions = fields.ToManyField("tastyapi.resources.RegionResource",
+    regions = fields.ToManyField("api.resources.RegionResource",
                                  "regions", null=True, full=True)
-    references = fields.ToManyField("tastyapi.resources.ReferenceResource",
+    references = fields.ToManyField("api.resources.ReferenceResource",
                                     "references", null=True, full=True)
 
     class Meta:
@@ -388,7 +388,7 @@ class SampleResource(VersionedResource, FirstOrderResource):
         allowed_methods = ['get', 'post', 'put', 'delete']
         always_return_data = True
         authentication = CustomApiKeyAuth()
-        authorization = ObjectAuthorization('tastyapi', 'sample')
+        authorization = ObjectAuthorization('api', 'sample')
         ordering = ['collector']
         excludes = ['user']
         filtering = {
@@ -499,7 +499,7 @@ class SampleResource(VersionedResource, FirstOrderResource):
 
 
 class SampleAliasResource(BaseResource):
-    sample = fields.ToOneField("tastyapi.resources.SampleResource",
+    sample = fields.ToOneField("api.resources.SampleResource",
                                   "sample")
     class Meta:
         queryset = SampleAliase.objects.all()
@@ -534,7 +534,7 @@ class RockTypeResource(BaseResource):
 
 
 class MineralResource(BaseResource):
-    real_mineral = fields.ToOneField('tastyapi.resources.MineralResource',
+    real_mineral = fields.ToOneField('api.resources.MineralResource',
                                      'real_mineral')
     class Meta:
         resource_name = 'mineral'
@@ -548,9 +548,9 @@ class MineralResource(BaseResource):
 
 
 class MineralRelationshipResource(BaseResource):
-    parent_mineral = fields.ToOneField('tastyapi.resources.MineralResource',
+    parent_mineral = fields.ToOneField('api.resources.MineralResource',
                                           'parent_mineral', full=True)
-    child_mineral = fields.ToOneField('tastyapi.resources.MineralResource',
+    child_mineral = fields.ToOneField('api.resources.MineralResource',
                                          'child_mineral', full=True)
 
     class Meta:
@@ -600,7 +600,7 @@ class SubsampleTypeResource(BaseResource):
 
 
 class SubsampleResource(VersionedResource, FirstOrderResource):
-    user = fields.ToOneField("tastyapi.resources.UserResource", "user",
+    user = fields.ToOneField("api.resources.UserResource", "user",
                              full=True)
     sample = fields.ToOneField(SampleResource, "sample")
     subsample_type = fields.ToOneField(SubsampleTypeResource,
@@ -610,7 +610,7 @@ class SubsampleResource(VersionedResource, FirstOrderResource):
         excludes = ['user']
         allowed_methods = ['get', 'post', 'put', 'delete']
         always_return_data = True
-        authorization = ObjectAuthorization('tastyapi', 'subsample')
+        authorization = ObjectAuthorization('api', 'subsample')
         authentication = CustomApiKeyAuth()
         filtering = {
                 'subsample_id': ALL,
@@ -659,13 +659,13 @@ class ElementResource(BaseResource):
 
 
 class ChemicalAnalysisResource(VersionedResource):
-    user = fields.ToOneField("tastyapi.resources.UserResource", "user")
+    user = fields.ToOneField("api.resources.UserResource", "user")
     subsample = fields.ToOneField(SubsampleResource, "subsample")
     reference = fields.ToOneField(ReferenceResource, "reference", null=True)
     minerals = fields.ToOneField(MineralResource, "mineral", null=True, full=True)
-    oxides = fields.ToManyField("tastyapi.resources.OxideResource",
+    oxides = fields.ToManyField("api.resources.OxideResource",
                                  "oxides", null=True)
-    elements = fields.ToManyField("tastyapi.resources.ElementResource",
+    elements = fields.ToManyField("api.resources.ElementResource",
                                  "elements", null=True)
     # oxides = fields.ToManyField(ChemicalAnalysisOxideResource,
     #     attribute = lambda bundle: bundle.obj.oxides.through.objects.filter(
@@ -677,7 +677,7 @@ class ChemicalAnalysisResource(VersionedResource):
         allowed_methods = ['get', 'post', 'put', 'delete']
         always_return_data = True
         excludes = ['image', 'user']
-        authorization = ObjectAuthorization('tastyapi', 'chemicalanalyses')
+        authorization = ObjectAuthorization('api', 'chemicalanalyses')
         authentication = CustomApiKeyAuth()
         filtering = {
                 'chemical_analysis_id': ALL,

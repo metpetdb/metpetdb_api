@@ -1,35 +1,35 @@
 [
     {
         "pk": 1,
-        "model": "tastyapi.reference",
+        "model": "api.reference",
         "fields": {
             "name": "2004-061314"
         }
     },
     {
         "pk": 2,
-        "model": "tastyapi.reference",
+        "model": "api.reference",
         "fields": {
             "name": "2004-065494"
         }
     },
     {
         "pk": 3,
-        "model": "tastyapi.reference",
+        "model": "api.reference",
         "fields": {
             "name": "2005-047430"
         }
     },
     {
         "pk": 4,
-        "model": "tastyapi.reference",
+        "model": "api.reference",
         "fields": {
             "name": "2006-030965"
         }
     },
     {
         "pk": 5,
-        "model": "tastyapi.reference",
+        "model": "api.reference",
         "fields": {
             "name": "2006-041327"
         }

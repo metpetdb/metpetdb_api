@@ -1,5 +1,5 @@
-from tastyapi.models import GroupAccess
-from tastyapi.models import User, Sample, Subsample, SubsampleType, \
+from api.models import GroupAccess
+from api.models import User, Sample, Subsample, SubsampleType, \
                             RockType
 
 from django.contrib.auth.models import User as AuthUser

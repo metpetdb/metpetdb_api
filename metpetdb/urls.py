@@ -9,7 +9,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # from django.contrib import admin
 # admin.autodiscover()
 
-from tastyapi.resources import SampleResource, RockTypeResource, \
+from api.resources import SampleResource, RockTypeResource, \
                                SubsampleResource, SubsampleTypeResource, \
                                ReferenceResource, ChemicalAnalysisResource, \
                                MineralResource, UserResource, RegionResource, \
@@ -39,19 +39,19 @@ api_v1.register(MineralRelationshipResource())
 urlpatterns = patterns('',
   url(r'^api/', include(api_v1.urls)),
 
-  url(r'^register/$', 'tastyapi.views.register'),
-  url(r'^authenticate/$', 'tastyapi.views.authenticate', name="authenticate"),
-  url(r'^reset-password/$', 'tastyapi.views.reset_password', name="reset_password"),
-  url(r'^reset-password/(?P<token>[^/]+)/$', 'tastyapi.views.reset_password', name="reset_password"),
+  url(r'^register/$', 'api.views.register'),
+  url(r'^authenticate/$', 'api.views.authenticate', name="authenticate"),
+  url(r'^reset-password/$', 'api.views.reset_password', name="reset_password"),
+  url(r'^reset-password/(?P<token>[^/]+)/$', 'api.views.reset_password', name="reset_password"),
 
-  url(r'^confirm/([a-zA-Z0-9]*)/$', 'tastyapi.views.confirm'),
+  url(r'^confirm/([a-zA-Z0-9]*)/$', 'api.views.confirm'),
 
   url(r'^request_contributor_access/$',
-      'tastyapi.views.request_contributor_access'),
+      'api.views.request_contributor_access'),
   url(r'^grant_contributor_access/([a-zA-Z0-9]*)/$',
-      'tastyapi.views.grant_contributor_access'),
+      'api.views.grant_contributor_access'),
 
-  url(r'^get-chem-analyses-given-sample-filters/$', 'tastyapi.views.chem_analyses_given_sample_filters'),
+  url(r'^get-chem-analyses-given-sample-filters/$', 'api.views.chem_analyses_given_sample_filters'),
   url(r'^chemical_analysis/(\d+)/$', 'webservices.views.chemical_analysis',
                                       name='chemical_analysis'),
 

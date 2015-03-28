@@ -5,7 +5,7 @@
         "fields": {
             "model": "adminuser", 
             "name": "admin user", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -32,7 +32,7 @@
         "fields": {
             "model": "chemicalanalyses", 
             "name": "chemical analyses", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -41,7 +41,7 @@
         "fields": {
             "model": "chemicalanalysiselement", 
             "name": "chemical analysis element", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -50,7 +50,7 @@
         "fields": {
             "model": "chemicalanalysisoxide", 
             "name": "chemical analysis oxide", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -68,7 +68,7 @@
         "fields": {
             "model": "element", 
             "name": "element", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -77,7 +77,7 @@
         "fields": {
             "model": "elementmineraltype", 
             "name": "element mineral type", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -86,7 +86,7 @@
         "fields": {
             "model": "geometrycolumn", 
             "name": "geometry column", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -95,7 +95,7 @@
         "fields": {
             "model": "georeference", 
             "name": "georeference", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -104,7 +104,7 @@
         "fields": {
             "model": "grid", 
             "name": "grid", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -122,7 +122,7 @@
         "fields": {
             "model": "groupaccess", 
             "name": "group access", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -131,7 +131,7 @@
         "fields": {
             "model": "groupextra", 
             "name": "group extra", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -140,7 +140,7 @@
         "fields": {
             "model": "image", 
             "name": "image", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -149,7 +149,7 @@
         "fields": {
             "model": "imagecomment", 
             "name": "image comment", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -158,7 +158,7 @@
         "fields": {
             "model": "imageformat", 
             "name": "image format", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -167,7 +167,7 @@
         "fields": {
             "model": "imageongrid", 
             "name": "image on grid", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -176,7 +176,7 @@
         "fields": {
             "model": "imagereference", 
             "name": "image reference", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -185,7 +185,7 @@
         "fields": {
             "model": "imagetype", 
             "name": "image type", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -203,7 +203,7 @@
         "fields": {
             "model": "metamorphicgrade", 
             "name": "metamorphic grade", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -212,7 +212,7 @@
         "fields": {
             "model": "metamorphicregion", 
             "name": "metamorphic region", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -221,7 +221,7 @@
         "fields": {
             "model": "mineral", 
             "name": "mineral", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -230,7 +230,7 @@
         "fields": {
             "model": "mineraltype", 
             "name": "mineral type", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -239,7 +239,7 @@
         "fields": {
             "model": "oxide", 
             "name": "oxide", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -248,7 +248,7 @@
         "fields": {
             "model": "oxidemineraltype", 
             "name": "oxide mineral type", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -266,7 +266,7 @@
         "fields": {
             "model": "project", 
             "name": "project", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -275,7 +275,7 @@
         "fields": {
             "model": "projectinvite", 
             "name": "project invite", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -284,7 +284,7 @@
         "fields": {
             "model": "projectmember", 
             "name": "project member", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -293,7 +293,7 @@
         "fields": {
             "model": "projectsample", 
             "name": "project sample", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -302,7 +302,7 @@
         "fields": {
             "model": "reference", 
             "name": "reference", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -311,7 +311,7 @@
         "fields": {
             "model": "region", 
             "name": "region", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -320,7 +320,7 @@
         "fields": {
             "model": "rocktype", 
             "name": "rock type", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -329,7 +329,7 @@
         "fields": {
             "model": "role", 
             "name": "role", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -338,7 +338,7 @@
         "fields": {
             "model": "sample", 
             "name": "sample", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -347,7 +347,7 @@
         "fields": {
             "model": "samplealiase", 
             "name": "sample aliase", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -356,7 +356,7 @@
         "fields": {
             "model": "samplecomment", 
             "name": "sample comment", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -365,7 +365,7 @@
         "fields": {
             "model": "samplemetamorphicgrade", 
             "name": "sample metamorphic grade", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -374,7 +374,7 @@
         "fields": {
             "model": "samplemetamorphicregion", 
             "name": "sample metamorphic region", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -383,7 +383,7 @@
         "fields": {
             "model": "samplemineral", 
             "name": "sample mineral", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -392,7 +392,7 @@
         "fields": {
             "model": "samplereference", 
             "name": "sample reference", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -401,7 +401,7 @@
         "fields": {
             "model": "sampleregion", 
             "name": "sample region", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -428,7 +428,7 @@
         "fields": {
             "model": "spatialrefsys", 
             "name": "spatial ref sys", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -437,7 +437,7 @@
         "fields": {
             "model": "subsample", 
             "name": "subsample", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -446,7 +446,7 @@
         "fields": {
             "model": "subsampletype", 
             "name": "subsample type", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -455,7 +455,7 @@
         "fields": {
             "model": "uploadedfile", 
             "name": "uploaded file", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -473,7 +473,7 @@
         "fields": {
             "model": "user", 
             "name": "user", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -482,7 +482,7 @@
         "fields": {
             "model": "usersrole", 
             "name": "users role", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }, 
     {
@@ -491,7 +491,7 @@
         "fields": {
             "model": "xrayimage", 
             "name": "xray image", 
-            "app_label": "tastyapi"
+            "app_label": "api"
         }
     }
 ]

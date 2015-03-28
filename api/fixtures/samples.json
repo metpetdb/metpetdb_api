@@ -1,7 +1,7 @@
 [
     {
         "pk": 1,
-        "model": "tastyapi.sample",
+        "model": "api.sample",
         "fields": {
             "description": "1A\ngernet-staurolite schist",
             "location": "POINT (-72.4457321166992045 41.7914009094237997)",
@@ -21,7 +21,7 @@
     },
     {
         "pk": 2,
-        "model": "tastyapi.sample",
+        "model": "api.sample",
         "fields": {
             "description": "1C\ngernet-staurolite schist",
             "location": "POINT (-72.4457321166992045 41.7914009094237997)",
@@ -41,7 +41,7 @@
     },
     {
         "pk": 3,
-        "model": "tastyapi.sample",
+        "model": "api.sample",
         "fields": {
             "description": "1G\ngernet-staurolite schist",
             "location": "POINT (-72.4457321166992045 41.7914009094237997)",
@@ -61,7 +61,7 @@
     },
     {
         "pk": 4,
-        "model": "tastyapi.sample",
+        "model": "api.sample",
         "fields": {
             "description": "1H\ngernet-staurolite schist",
             "location": "POINT (-72.4457321166992045 41.7914009094237997)",
@@ -81,7 +81,7 @@
     },
     {
         "pk": 5,
-        "model": "tastyapi.sample",
+        "model": "api.sample",
         "fields": {
             "description": "1I\ngernet-staurolite schist",
             "location": "POINT (-72.4457321166992045 41.7914009094237997)",
