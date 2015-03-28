@@ -42,7 +42,7 @@ def main():
 
     This function is idempotent, but shouldn't need to be run multiple times.
     """
-    for metpet_user in MetpetUser.objects.filter(django_user=None):
+    for metpet_user in MetpetUser.objects.filter(django_user=None).iterator():
         logger.info("Transitioning %s.", metpet_user.name)
         email = metpet_user.email
         logger.debug("Email = %s", email)
@@ -79,7 +79,7 @@ def main():
     public_groups = get_public_groups()
     for Model in models_with_owners:
         ctype = ContentType.objects.get_for_model(Model)
-        for item in Model.objects.all():
+        for item in Model.objects.all().iterator():
             owner = item.user
             owner_django = owner.django_user
             try:
@@ -96,7 +96,7 @@ def main():
                         content_type=ctype, object_id=item.pk).save()
     for Model in models_with_public_data:
         ctype = ContentType.objects.get_for_model(Model)
-        for item in Model.objects.filter(public_data__iexact='y'):
+        for item in Model.objects.filter(public_data__iexact='y').iterator():
             for group in public_groups:
                 if GroupAccess.objects.filter(group=group, content_type=ctype,
                                               object_id=item.pk).exists():
