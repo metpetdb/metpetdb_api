@@ -75,7 +75,7 @@ def chem_analyses_given_sample_filters(request):
 
 
 @csrf_exempt
-@transaction.commit_on_success
+@transaction.atomic
 def register(request):
     json_data = json.loads(request.body)
 
@@ -206,7 +206,7 @@ def reset_password(request, token=None):
                                       content_type='application/json')
 
 
-@transaction.commit_on_success
+@transaction.atomic
 def confirm(request, conf_code):
     try:
         user = User.objects.get(confirmation_code=conf_code)
@@ -222,7 +222,7 @@ def confirm(request, conf_code):
         return HttpResponse("Unable to confirm your email address.")
 
 
-@transaction.commit_on_success
+@transaction.atomic
 def request_contributor_access(request):
     try:
         user = User.objects.get(email=request.GET['email'])
@@ -267,7 +267,7 @@ def request_contributor_access(request):
     return HttpResponse("Your request to be added as a contributor has been submitted")
 
 
-@transaction.commit_on_success
+@transaction.atomic
 def grant_contributor_access(request, contributor_code):
     try:
         user = User.objects.get(contributor_code=contributor_code)
