@@ -1,13 +1,19 @@
+#!/usr/bin/env python
+
 import base64
 import logging
 import dotenv
-dotenv.read_dotenv('../../api_variables.env')
+dotenv.read_dotenv('../api_variables.env')
 logger = logging.getLogger(__name__)
 
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User as AuthUser
 from django.contrib.auth.models import Group
 from django.db import transaction
+
+import sys
+sys.path.append('/vagrant/api')
+sys.path.append('/vagrant/api/api')
 
 from api.models import ApiKey
 from api.models import get_public_groups
@@ -53,17 +59,17 @@ def main():
                                                                     '+', '.',
                                                                     '-'])[:30]
         logger.debug("Username = %s", username)
-        password = translate(bytearray(metpet_user.password))
-        if password == 'sha1$$':
-            logger.warning("%s (%s) has an unusable password and won't be "+
-                           "able to log in.", metpet_user.name, email)
-        logger.debug("Password hash = %s", password)
-        result = AuthUser(username=username, password=password, email=email,
-                          is_staff=False, is_active=True, is_superuser=False)
+
+        result = AuthUser(username=username,
+                          email=email,
+                          is_staff=False,
+                          is_active=True,
+                          is_superuser=False)
+        result.set_unusable_password()
         result.save()
         ApiKey.objects.create(user=result)
         metpet_user.django_user = result
-        metpet_user.password = password
+        metpet_user.password = None
         metpet_user.save()
         if metpet_user.enabled.upper() == 'Y':
             # Add user to public group(s), so (s)he can read public things

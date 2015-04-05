@@ -2,39 +2,32 @@
 # Also note: You'll have to insert the output of 'django-admin.py sqlcustom [appname]'
 # into your database.
 from __future__ import unicode_literals
-import uuid
 import hashlib
-import base64
 import random
-from django.db.models import Model, BigIntegerField, CharField, DateTimeField,\
-                             FloatField, ForeignKey, IntegerField,\
-                             ManyToManyField, SmallIntegerField, TextField, \
-                             AutoField, OneToOneField
+
+from django.db.models import (
+    Model,
+    CharField,
+    ForeignKey,
+    ManyToManyField,
+    OneToOneField
+)
 from django.db.models import BooleanField, PositiveIntegerField
-from django.db.models import Field
-from django.db.models import Q
 from django.contrib.auth.models import User as AuthUser
-from django.contrib.auth.models import Group, Permission
+from django.contrib.auth.models import Group
 from django.contrib.auth.hashers import make_password
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
-from django.contrib.gis.db.models import GeoManager, PolygonField, PointField,\
-                                         GeometryField
-from django.db.models.signals import post_save, pre_save, post_delete
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-from django.core.mail import EmailMessage
-from django.db import models as DjangoModels
-from tastypie.models import ApiKey
 from django.contrib.gis.db import models
-
-from metpetdb import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
 
-from . import utils
+from metpetdb import settings
 
-# from tastypie.models import create_api_key
+from . import utils
 
 PUBLIC_GROUP_DEFAULT_NAME = 'public_group'
 
@@ -47,6 +40,8 @@ class GroupExtra(Model):
                                                    ('u_uid', 'user'),
                                                    ('p_pid', 'project')))
     owner = ForeignKey(AuthUser, blank=True, null=True)
+    class Meta:
+        db_table = 'tastyapi_groupextra'
 
 
 class GroupAccess(Model):
@@ -59,6 +54,7 @@ class GroupAccess(Model):
     class Meta:
         unique_together = ('group', 'content_type', 'object_id')
         get_latest_by = 'id'
+        db_table = 'tastyapi_groupaccess'
 
 
 def get_public_groups():
@@ -258,6 +254,7 @@ class User(models.Model):
     def save(self, **kwargs):
         if self.pk is None:
             self.pk = utils.get_next_id(User)
+            self.password = make_password(self.password)
             self.confirmation_code = generate_confirmation_code(self.name)
         super(User, self).save(**kwargs)
 
@@ -316,24 +313,6 @@ class User(models.Model):
         self.save()
         return True
 
-@receiver(post_save, sender=User)
-def create_auth_user(sender, instance, created, raw, **kwargs):
-    if created:
-        username = ''.join(c for c in instance.email if c.isalnum() or
-                                                        c in ['_', '@',
-                                                            '+', '.',
-                                                            '-'])[:30]
-
-        auth_user = AuthUser.objects.create(username=username,
-                                            password=base64.b64decode(instance.password),
-                                            email=instance.email,
-                                            is_staff=False,
-                                            is_active=True,
-                                            is_superuser=False)
-        auth_user.save()
-        instance.django_user = auth_user
-        instance.save()
-        ApiKey.objects.create(user=auth_user)
 
 @receiver(post_save, sender=User)
 def send_conf_email(sender, instance, created, raw, **kwargs):

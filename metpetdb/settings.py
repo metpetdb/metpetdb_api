@@ -162,8 +162,9 @@ INSTALLED_APPS = (
     'webservices',
     'tastypie',
     'api',
+    'apps',
     'fixtures',
-    'devserver'
+    'devserver',
 )
 
 #TEST_RUNNER = 'fixtures.util.CustomTestSuiteRunner'

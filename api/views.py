@@ -1,19 +1,16 @@
-from django.core.urlresolvers import reverse
-import urllib
 import ast
 import json
-import base64
-import datetime
 from itertools import chain
 from itsdangerous import URLSafeTimedSerializer
 
 from getenv import env
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound
 from django.http import HttpResponseForbidden, HttpResponseBadRequest
 from django.db import transaction
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User as AuthUser
 from django.contrib.auth.hashers import make_password
+from tastypie.models import ApiKey
 
 from .models import User, generate_confirmation_code
 from .api import MetpetAPI
@@ -60,7 +57,7 @@ def chem_analyses_given_sample_filters(request):
     subsample_chem_filters = {'subsample__subsample_id__in':
                                 ','.join(map(str, subsample_ids)),
                                'fields': 'chemical_analysis_id'}
-    subsample_chemical_analyses = api.chemical_analysis.get(\
+    subsample_chemical_analyses = api.chemical_analysis.get(
                                   params= dict(chain(subsample_chem_filters.items(),
                                                      standard_filters.items())))
 
@@ -96,14 +93,28 @@ def register(request):
         for param, value in json_data.iteritems():
             if param in allowed_params:
                 setattr(user, param, value)
-    user.password = bytearray(base64.b64encode(make_password(
-                                                       json_data['password'])))
+
     user.enabled = 'N'
     user.contributor_enabled = 'N'
     user.confirmation_code = ''
     user.contributor_code = ''
-    user.django_user = None
+
+    username = ''.join(c for c in user.email if c.isalnum() or
+                                                    c in ['_', '@',
+                                                        '+', '.',
+                                                        '-'])[:30]
+    password = make_password(json_data['password'])
+    auth_user = AuthUser.objects.create(username=username,
+                                        password=password,
+                                        email=user.email,
+                                        is_staff=False,
+                                        is_active=True,
+                                        is_superuser=False)
+
+    user.django_user = auth_user
     user.save()
+    ApiKey.objects.create(user=auth_user)
+
     data = {
         'result': 'success',
         'message': 'user registration successful',
@@ -146,12 +157,15 @@ def reset_password(request, token=None):
     if request.method == 'POST':
         try:
             if request.POST.get('token'):
-                sig_okay, email = serializer.loads_unsafe(request.POST.get('token'))
+                sig_okay, email = serializer.loads_unsafe(
+                                      request.POST.get('token'))
                 if not sig_okay:
                     data = {'result': 'failed',
                             'reason': 'reset token has expired'}
-                    return HttpResponseBadRequest(json.dumps(data),
-                                                  content_type='application/json')
+                    return HttpResponseBadRequest(
+                        json.dumps(data),
+                        content_type='application/json'
+                    )
             else:
                 email = request.POST.get('email', None)
             user = User.objects.get(email=email)
@@ -161,11 +175,9 @@ def reset_password(request, token=None):
         if user.enabled == 'Y':
             if request.POST.get('password'):
                 try:
-                    user.password = bytearray(base64.b64encode(make_password(
-                                                request.POST.get('password'))))
-                    user.save()
                     django_user = user.django_user
-                    django_user.password = base64.b64decode(user.password)
+                    django_user.password = make_password(
+                                               request.POST.get('password'))
                     django_user.save()
                     data = {'result': 'success',
                             'email': user.email,
@@ -178,7 +190,6 @@ def reset_password(request, token=None):
                                               content_type='application/json')
             else:
                 reset_token = serializer.dumps(user.email)
-
                 data = {
                     'status': 'success',
                     'email': user.email,

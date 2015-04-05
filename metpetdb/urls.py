@@ -52,13 +52,13 @@ urlpatterns = patterns('',
       'api.views.grant_contributor_access'),
 
   url(r'^get-chem-analyses-given-sample-filters/$', 'api.views.chem_analyses_given_sample_filters'),
-  url(r'^chemical_analysis/(\d+)/$', 'webservices.views.chemical_analysis',
-                                      name='chemical_analysis'),
+  # url(r'^chemical_analysis/(\d+)/$', 'webservices.views.chemical_analysis',
+  #                                     name='chemical_analysis'),
 
-  url(r'^api/metpetdb/$','webservices.views.metpetdb'),
+  # url(r'^api/metpetdb/$','webservices.views.metpetdb'),
 
-  url(r'^webservices/samples$', 'webservices.views.samples'),
-  url(r'^webservices/chemicalanalyses$', 'webservices.views.chemical_analyses'),
+  # url(r'^webservices/samples$', 'webservices.views.samples'),
+  # url(r'^webservices/chemicalanalyses$', 'webservices.views.chemical_analyses'),
 
   # Uncomment the admin/doc line below to enable admin documentation:
   # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

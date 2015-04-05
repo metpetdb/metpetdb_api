@@ -163,3 +163,8 @@ ALTER TABLE sample_regions ADD PRIMARY KEY (id);
 ALTER TABLE project_samples ADD COLUMN id SERIAL;
 
 ALTER TABLE project_samples ADD PRIMARY KEY (id);
+
+
+ALTER TABLE users ALTER COLUMN password DROP NOT NULL;
+
+ALTER TABLE users ALTER COLUMN password TYPE character varying(128);

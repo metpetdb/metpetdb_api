@@ -3,25 +3,46 @@ from django.contrib.auth.models import AnonymousUser
 from django.db.models import Q
 from django.contrib.gis.geos.polygon import Polygon
 from django.core.exceptions import ObjectDoesNotExist
-from tastypie.resources import ModelResource
+
 from tastypie.constants import ALL, ALL_WITH_RELATIONS
 from tastypie import fields
 from tastypie.validation import Validation
 from tastypie.authorization import Authorization
 from tastypie.authentication import ApiKeyAuthentication
-from tastypie.exceptions import Unauthorized, InvalidFilterError, ImmediateHttpResponse
+from tastypie.exceptions import (
+    Unauthorized,
+    InvalidFilterError,
+    ImmediateHttpResponse
+)
 
-from .models import User, Sample, MetamorphicGrade, MetamorphicRegion, Region,\
-                    RockType, Subsample, SubsampleType, Mineral, Reference, \
-                    ChemicalAnalyses, SampleRegion, SampleReference, \
-                    SampleMineral, SampleMetamorphicGrade, SampleAliase, \
-                    SampleMetamorphicRegion, Oxide, ChemicalAnalysisOxide, \
-                    MineralRelationship, Element
+from .models import (
+    User,
+    Sample,
+    MetamorphicGrade,
+    MetamorphicRegion,
+    Region,
+    RockType,
+    Subsample,
+    SubsampleType,
+    Mineral,
+    Reference,
+    ChemicalAnalyses,
+    SampleRegion,
+    SampleReference,
+    SampleMineral,
+    SampleMetamorphicGrade,
+    SampleAliase,
+    SampleMetamorphicRegion,
+    Oxide,
+    MineralRelationship,
+    Element
+)
 
 from .specified_fields import SpecifiedFields
 from . import auth
 from . import utils
 import logging
+
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
@@ -402,7 +423,6 @@ class SampleResource(VersionedResource, FirstOrderResource):
                 'metamorphic_grades': ALL_WITH_RELATIONS,
                 'metamorphic_regions': ALL_WITH_RELATIONS,
                 'collector': ALL,
-                'number': ALL,
                 'references': ALL_WITH_RELATIONS,
                 'sample_id': ALL,
                 'user': ALL,
@@ -680,22 +700,22 @@ class ChemicalAnalysisResource(VersionedResource):
         authorization = ObjectAuthorization('api', 'chemicalanalyses')
         authentication = CustomApiKeyAuth()
         filtering = {
-                'chemical_analysis_id': ALL,
-                'subsample': ALL_WITH_RELATIONS,
-                'reference': ALL_WITH_RELATIONS,
-                'public_data': ALL,
-                'reference_x': ALL,
-                'reference_y': ALL,
-                'stage_x': ALL,
-                'stage_y': ALL,
-                'analysis_method': ALL,
-                'where_done': ALL,
-                'analyst': ALL,
-                'analysis_date': ALL,
-                'large_rock': ALL,
-                'total': ALL,
-                'oxides': ALL_WITH_RELATIONS,
-                'minerals': ALL_WITH_RELATIONS,
-                'elements': ALL_WITH_RELATIONS
-                }
+            'chemical_analysis_id': ALL,
+            'subsample': ALL_WITH_RELATIONS,
+            'reference': ALL_WITH_RELATIONS,
+            'public_data': ALL,
+            'reference_x': ALL,
+            'reference_y': ALL,
+            'stage_x': ALL,
+            'stage_y': ALL,
+            'analysis_method': ALL,
+            'where_done': ALL,
+            'analyst': ALL,
+            'analysis_date': ALL,
+            'large_rock': ALL,
+            'total': ALL,
+            'oxides': ALL_WITH_RELATIONS,
+            'minerals': ALL_WITH_RELATIONS,
+            'elements': ALL_WITH_RELATIONS
+        }
         validation = VersionValidation(queryset, 'chemical_analysis_id')
