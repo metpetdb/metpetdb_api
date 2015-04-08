@@ -1,4 +1,4 @@
-from tastyapi.models import User, Sample, Subsample, SubsampleType, \
+from api.models import User, Sample, Subsample, SubsampleType, \
                             RockType, ChemicalAnalyses, Subsample, Reference, \
                             Mineral, GroupAccess
 

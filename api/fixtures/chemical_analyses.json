@@ -1,0 +1,80 @@
+[
+    {
+        "pk": 1,
+        "model": "api.chemicalanalyses",
+        "fields": {
+            "user": 1,
+            "mineral": 34,
+            "total": 0.0,
+            "reference_y": 0.0,
+            "reference_x": 0.0,
+            "reference": null,
+            "analysis_date": null,
+            "image": null,
+            "description": null,
+            "stage_x": 0.0,
+            "stage_y": 0.0,
+            "subsample": 4929,
+            "version": 0,
+            "public_data": "Y",
+            "spot_id": 3,
+            "large_rock": "N",
+            "date_precision": null,
+            "analyst": null,
+            "where_done": null,
+            "analysis_method": null
+        }
+    },
+    {
+        "pk": 2,
+        "model": "api.chemicalanalyses",
+        "fields": {
+            "user": 1,
+            "mineral": 34,
+            "total": 94.39,
+            "reference_y": 0.0,
+            "reference_x": 0.0,
+            "reference": null,
+            "analysis_date": null,
+            "image": null,
+            "description": null,
+            "stage_x": 0.0,
+            "stage_y": 0.0,
+            "subsample": 5705,
+            "version": 0,
+            "public_data": "Y",
+            "spot_id": 12,
+            "large_rock": "N",
+            "date_precision": null,
+            "analyst": null,
+            "where_done": null,
+            "analysis_method": "EMP"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "api.chemicalanalyses",
+        "fields": {
+            "user": 1,
+            "mineral": 127,
+            "total": 97.84,
+            "reference_y": 0.0,
+            "reference_x": 0.0,
+            "reference": null,
+            "analysis_date": null,
+            "image": null,
+            "description": null,
+            "stage_x": 0.0,
+            "stage_y": 0.0,
+            "subsample": 5707,
+            "version": 0,
+            "public_data": "Y",
+            "spot_id": 3,
+            "large_rock": "N",
+            "date_precision": null,
+            "analyst": null,
+            "where_done": null,
+            "analysis_method": "EMP"
+        }
+    }
+]

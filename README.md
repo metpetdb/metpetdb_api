@@ -260,7 +260,7 @@ And then run the scripts
     source ~/.bashrc
     cd metpetdb/
     setdsm
-    cd ../tastyapi
+    cd ../api
     python transition1.py
     python transition2.py
 

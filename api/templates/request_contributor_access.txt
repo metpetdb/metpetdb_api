@@ -1,0 +1,17 @@
+Hello {{ name }} - please check this person out and approve.
+
+Details:
+
+Name: {{ user.name }}
+
+Email: {{ user.email }}
+
+Institution: {{ user.institution }}
+
+Reference email: {{ user.reference_email }}
+
+Professional URL: {{ user.professional_url }}
+
+Research interests: {{ user.research_interests }}
+
+Click this link to confirm: {{ host_name }}{% url 'api.views.grant_contributor_access' user.contributor_code %}

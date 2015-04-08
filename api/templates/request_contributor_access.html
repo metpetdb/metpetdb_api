@@ -1,0 +1,29 @@
+<html>
+<body>
+  <p>
+    Hello {{ name }} - please check this person out and approve.
+  </p>
+  <p>
+    This is an HTML email.
+  </p>
+  <p>
+    Details:
+    <br/>
+    Name: {{ user.name }}
+    <br/>
+    Email: {{ user.email }}
+    <br/>
+    Institution: {{ user.institution }}
+    <br/>
+    Reference email: {{ user.reference_email }}
+    <br/>
+    Professional URL: {{ user.professional_url }}
+    <br/>
+    Research interests: {{ user.research_interests }}
+  </p>
+  <p>
+    Click this link to confirm: {{ host_name }}{% url 'api.views.grant_contributor_access' user.contributor_code %}
+  </p>
+  </p>
+</body>
+</html>

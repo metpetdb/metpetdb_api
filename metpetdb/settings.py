@@ -20,14 +20,14 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = env('EMAIL_PORT')
 
-AUTHENTICATION_BACKENDS = ('tastyapi.auth.DACBackend',)
+AUTHENTICATION_BACKENDS = ('api.auth.DACBackend',)
 
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
     'django.contrib.auth.hashers.BCryptPasswordHasher',
     'django.contrib.auth.hashers.SHA1PasswordHasher',
-    'tastyapi.hashing.SHA1WithBase64SaltHasher',
+    'api.hashing.SHA1WithBase64SaltHasher',
     'django.contrib.auth.hashers.MD5PasswordHasher',
     'django.contrib.auth.hashers.CryptPasswordHasher',
 )
@@ -141,7 +141,7 @@ ROOT_URLCONF = 'metpetdb.urls'
 WSGI_APPLICATION = 'metpetdb.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, 'tastyapi/templates', 'web', 'webservices'),
+    os.path.join(PROJECT_DIR, 'api/templates', 'web', 'webservices'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -161,9 +161,10 @@ INSTALLED_APPS = (
     'django_nose',
     'webservices',
     'tastypie',
-    'tastyapi',
+    'api',
+    'apps',
     'fixtures',
-    'devserver'
+    'devserver',
 )
 
 #TEST_RUNNER = 'fixtures.util.CustomTestSuiteRunner'

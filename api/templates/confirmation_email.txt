@@ -1,0 +1,4 @@
+    Hello {{ name }} - your confirmation code is {{confirmation_code}}.
+    This is text email.
+
+    Click this link to confirm: {{ host_name }}{% url 'api.views.confirm' confirmation_code %}

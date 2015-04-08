@@ -1,0 +1,226 @@
+[
+    {
+        "pk": 1, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Slate"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Phyllite"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Schist"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Gneiss"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Migmatite"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Anatectite"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Marble"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Calc-silicate"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Greenschist"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Amphibolite"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Blueschist"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Eclogite"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Granofels"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Hornfels"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Skarn"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Quartzite"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Jadeitite"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Glaucophanite"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Serpentinite"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Garnetite"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Pyroxenite"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Mylonite"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Cataclasite"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Metapelite"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Metaigneous"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Metaarkose"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Metagreywacke"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Metabasite"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Metacarbonate"
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Metagranite"
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Cordierite-Anthophyllite"
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "api.rocktype",
+        "fields": {
+            "rock_type": "Metavolcanic"
+        }
+    }
+]
