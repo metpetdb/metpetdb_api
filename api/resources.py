@@ -203,14 +203,14 @@ class CustomApiKeyAuth(ApiKeyAuthentication):
 
     def is_authenticated(self, request, **kwargs):
         if request.method == 'GET':
-            try:
-                # If authorization header is present, authenticate the request
-                if request.META['HTTP_AUTHORIZATION']:
-                    return super(CustomApiKeyAuth, self).is_authenticated(
+            # If authorization header is present, authenticate the request,
+            # else just set the current user to AnonymousUser and continue
+            # handling the request
+            authenticated = super(CustomApiKeyAuth, self).is_authenticated(
                                                             request, **kwargs)
-            except KeyError:
-                # else just set the current user to AnonymousUser and continue
-                # handling the request
+            if authenticated:
+                return authenticated
+            else:
                 request.user = AnonymousUser()
                 return True
         else:
