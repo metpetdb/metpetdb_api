@@ -208,11 +208,11 @@ class CustomApiKeyAuth(ApiKeyAuthentication):
             # handling the request
             authenticated = super(CustomApiKeyAuth, self).is_authenticated(
                 request, **kwargs)
-            if authenticated.status_code == 401:
+            if authenticated == True:
+                return authenticated
+            else:
                 request.user = AnonymousUser()
                 return True
-            else:
-                return authenticated
         else:
             return super(CustomApiKeyAuth, self).is_authenticated(request,
                          **kwargs)
