@@ -207,12 +207,12 @@ class CustomApiKeyAuth(ApiKeyAuthentication):
             # else just set the current user to AnonymousUser and continue
             # handling the request
             authenticated = super(CustomApiKeyAuth, self).is_authenticated(
-                                                            request, **kwargs)
-            if authenticated:
-                return authenticated
-            else:
+                request, **kwargs)
+            if authenticated.status_code == 401:
                 request.user = AnonymousUser()
                 return True
+            else:
+                return authenticated
         else:
             return super(CustomApiKeyAuth, self).is_authenticated(request,
                          **kwargs)
