@@ -12,7 +12,7 @@ from django.contrib.auth.models import User as AuthUser
 from django.contrib.auth.hashers import make_password
 from tastypie.models import ApiKey
 
-from .models import User, generate_confirmation_code
+from .models import User, generate_confirmation_code, Image
 from .api import MetpetAPI
 from metpetdb import settings
 from django.core.mail import EmailMultiAlternatives
@@ -232,6 +232,32 @@ def confirm(request, conf_code):
     else:
         return HttpResponse("Unable to confirm your email address.")
 
+@transaction.atomic
+def rawimage(request, cksum):
+    #determine the type of checksum
+    try: image = Image.objects.get(checksum=cksum)
+    except:
+        try: image = Image.objects.get(checksum_64x64=cksum)
+        except:
+            try: image = Image.objects.get(checksum_half=cksum)
+            except: 
+                try: image = Image.objects.get(checksum_mobile=cksum)
+                except:
+                    return HttpResponseNotFound("No such image found.")
+    
+    #determine physical image location
+    def get_path(checksum):
+        if checksum != 'null':
+            checksum = settings.MEDIA_ROOT + checksum[0:2] + '/' + checksum[2:4] + '/' + checksum[4:]
+        return checksum 
+    
+    try:
+        path = get_path(cksum)
+        image_data = open(path, "rb").read()
+        return HttpResponse(image_data, content_type="image/png")
+    
+    except: 
+        return HttpResponseNotFound("Unable to open image file for reading")
 
 @transaction.atomic
 def request_contributor_access(request):

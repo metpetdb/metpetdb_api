@@ -560,6 +560,37 @@ class Project(models.Model):
         db_table = 'projects'
 
 
+class Image(models.Model):
+    image_id = models.BigIntegerField(primary_key=True)
+    checksum = models.CharField(max_length=50)
+    version = models.IntegerField()
+    sample = models.ForeignKey('Sample', null=True, blank=True,
+                               related_name='images')
+    subsample = models.ForeignKey('Subsample', null=True, blank=True,
+                                  related_name='images')
+    image_format = models.ForeignKey(ImageFormat, null=True, blank=True)
+    image_type = models.ForeignKey(ImageType)
+    width = models.SmallIntegerField()
+    height = models.SmallIntegerField()
+    collector = models.CharField(max_length=50, blank=True)
+    description = models.CharField(max_length=1024, blank=True)
+    scale = models.SmallIntegerField(null=True, blank=True)
+    user = models.ForeignKey('User')
+    public_data = models.CharField(max_length=1)
+    group_access = generic.GenericRelation(GroupAccess)
+    checksum_64x64 = models.CharField(max_length=50)
+    checksum_half = models.CharField(max_length=50)
+    filename = models.CharField(max_length=256)
+    checksum_mobile = models.CharField(max_length=50, blank=True)
+    #imagURL = models.CharField(max_length=50, null=True)
+    def __unicode__(self):
+        return u'Image #' + unicode(self.image_id)
+    class Meta:
+        # managed = False
+        db_table = u'images'
+        permissions = (('read_image', 'Can read image'),)
+
+
 # Update:
     # deal with public data change
     # from public to not public if public_data set to N and vice versa
@@ -588,6 +619,7 @@ class Sample(models.Model):
     minerals = ManyToManyField(Mineral, through='SampleMineral')
     references = ManyToManyField(Reference, through='SampleReference')
     regions = ManyToManyField(Region, through='SampleRegion')
+    image = ManyToManyField(Image, through='SampleImage', related_name='SampleImage')
     group_access = generic.GenericRelation(GroupAccess)
     subsample_count = models.IntegerField(default=0)
     chem_analyses_count = models.IntegerField(default=0)
@@ -658,6 +690,26 @@ class SampleRegion(models.Model):
         unique_together = (('sample', 'region'),)
         db_table = u'sample_regions'
         get_latest_by = 'id'
+
+
+class SampleImage(models.Model):
+    image = models.ForeignKey('Image')
+    image_id = models.BigIntegerField(primary_key=True)
+    sample = models.ForeignKey('Sample', null=True, blank=True,
+                               related_name='sample_image')
+    subsample = models.ForeignKey('Subsample', null=True, blank=True,
+                                  related_name='sample_image')
+    image_format = models.ForeignKey(ImageFormat, null=True, blank=True)
+    image_type = models.ForeignKey(ImageType)
+    
+    
+    def __unicode__(self):
+       return u'Image #' + unicode(self.image_id)
+
+    class Meta:
+       # managed = False
+       db_table = u'images'
+       permissions = (('read_image', 'Can read image'),) 
 
 
 class SampleAliase(models.Model):
@@ -782,38 +834,6 @@ class ChemicalAnalysisOxide(models.Model):
     class Meta:
         # managed = False
         db_table = 'chemical_analysis_oxides'
-
-
-class Image(models.Model):
-    image_id = models.BigIntegerField(primary_key=True)
-    checksum = models.CharField(max_length=50)
-    version = models.IntegerField()
-    sample = models.ForeignKey('Sample', null=True, blank=True,
-                               related_name='images')
-    subsample = models.ForeignKey('Subsample', null=True, blank=True,
-                                  related_name='images')
-    image_format = models.ForeignKey(ImageFormat, null=True, blank=True)
-    image_type = models.ForeignKey(ImageType)
-    width = models.SmallIntegerField()
-    height = models.SmallIntegerField()
-    collector = models.CharField(max_length=50, blank=True)
-    description = models.CharField(max_length=1024, blank=True)
-    scale = models.SmallIntegerField(null=True, blank=True)
-    user = models.ForeignKey('User')
-    public_data = models.CharField(max_length=1)
-    group_access = generic.GenericRelation(GroupAccess)
-    checksum_64x64 = models.CharField(max_length=50)
-    checksum_half = models.CharField(max_length=50)
-    filename = models.CharField(max_length=256)
-    checksum_mobile = models.CharField(max_length=50, blank=True)
-    def __unicode__(self):
-        return u'Image #' + unicode(self.image_id)
-    class Meta:
-        # managed = False
-        db_table = u'images'
-        permissions = (('read_image', 'Can read image'),)
-
-
 
 class ImageComment(models.Model):
     comment_id = models.BigIntegerField(primary_key=True)

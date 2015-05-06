@@ -35,7 +35,8 @@ from .models import (
     SampleMetamorphicRegion,
     Oxide,
     MineralRelationship,
-    Element
+    Element,
+    Image
 )
 
 from .specified_fields import SpecifiedFields
@@ -55,7 +56,8 @@ CLASS_MAPPING = {'regions': SampleRegion,
                  'reference_class': Reference,
                  'minerals': SampleMineral,
                  'metamorphic_grades': SampleMetamorphicGrade,
-                 'metamorphic_regions': SampleMetamorphicRegion}
+                 'metamorphic_regions': SampleMetamorphicRegion,
+                 'images': Image}
 
 
 class BaseResource(SpecifiedFields):
@@ -403,7 +405,8 @@ class SampleResource(VersionedResource, FirstOrderResource):
                                  "regions", null=True, full=True)
     references = fields.ToManyField("api.resources.ReferenceResource",
                                     "references", null=True, full=True)
-
+    images = fields.ToManyField("api.resources.ImageResource",
+                                    "images", null=True, full=True)
     class Meta:
         queryset = Sample.objects.all().distinct('sample_id')
         allowed_methods = ['get', 'post', 'put', 'delete']
@@ -427,7 +430,8 @@ class SampleResource(VersionedResource, FirstOrderResource):
                 'sample_id': ALL,
                 'user': ALL,
                 'country': ALL,
-                'location': ALL
+                'location': ALL,
+                'images': ALL
                 }
         validation = VersionValidation(queryset, 'sample_id')
 
@@ -565,8 +569,45 @@ class MineralResource(BaseResource):
                 'name': ALL,
                 'real_mineral': ALL_WITH_RELATIONS,
                 }
+    
+class ImageResource(BaseResource):
+    #store computed image urls    
+    image_data = fields.CharField() 
+    image_data64x64 = fields.CharField()
+    image_data_mobile = fields.CharField()
+    image_data_half = fields.CharField()
 
+    class Meta:
+       resource_name = 'image'
+       excludes = ('checksum', 'checksum_64x64', 
+                   'checksum_half', 'checksum_mobile')
+       queryset = Image.objects.all()
+       authentication = CustomApiKeyAuth()
+       ordering = ['image_id']
+       allowed_methods = ['get']
+       filtering = {
+                'image_id': ALL,
+               }   
 
+    def make_url(self, checksum):
+        #check that the image exists
+        if checksum != 'null': 
+            checksum = "/rawimage/" + checksum
+        return checksum 
+     
+    def dehydrate_image_data(self,bundle):
+        return self.make_url(bundle.obj.checksum)
+   
+    def dehydrate_image_data64x64(self,bundle):
+        return self.make_url(bundle.obj.checksum_64x64)
+
+    def dehydrate_image_data_mobile(self,bundle):
+        return self.make_url(bundle.obj.checksum_mobile)
+    
+    def dehydrate_image_data_half(self,bundle):
+        return self.make_url(bundle.obj.checksum_half)
+
+    
 class MineralRelationshipResource(BaseResource):
     parent_mineral = fields.ToOneField('api.resources.MineralResource',
                                           'parent_mineral', full=True)
@@ -625,6 +666,8 @@ class SubsampleResource(VersionedResource, FirstOrderResource):
     sample = fields.ToOneField(SampleResource, "sample")
     subsample_type = fields.ToOneField(SubsampleTypeResource,
                                        "subsample_type", full=True)
+    images = fields.ToManyField("api.resources.ImageResource",
+                                    "images", null=True, full=True)
     class Meta:
         queryset = Subsample.objects.all().distinct('subsample_id')
         excludes = ['user']
@@ -638,7 +681,8 @@ class SubsampleResource(VersionedResource, FirstOrderResource):
                 'grid_id': ALL,
                 'name': ALL,
                 'subsample_type': ALL_WITH_RELATIONS,
-                'sample': ALL_WITH_RELATIONS
+                'sample': ALL_WITH_RELATIONS,
+                'images': ALL
                 }
         validation = VersionValidation(queryset, 'subsample_id')
 

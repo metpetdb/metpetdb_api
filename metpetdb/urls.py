@@ -16,7 +16,7 @@ from api.resources import SampleResource, RockTypeResource, \
                                MetamorphicGradeResource, SampleAliasResource, \
                                MetamorphicRegionResource, \
                                MineralRelationshipResource, OxideResource, \
-                               ElementResource
+                               ElementResource, ImageResource
 from tastypie.api import Api
 
 api_v1 = Api(api_name='v1')
@@ -35,6 +35,7 @@ api_v1.register(RegionResource())
 api_v1.register(MetamorphicGradeResource())
 api_v1.register(MetamorphicRegionResource())
 api_v1.register(MineralRelationshipResource())
+api_v1.register(ImageResource())
 
 urlpatterns = patterns('',
   url(r'^api/', include(api_v1.urls)),
@@ -45,6 +46,7 @@ urlpatterns = patterns('',
   url(r'^reset-password/(?P<token>[^/]+)/$', 'api.views.reset_password', name="reset_password"),
 
   url(r'^confirm/([a-zA-Z0-9]*)/$', 'api.views.confirm'),
+  url(r'^rawimage/([a-zA-Z0-9]*)/$', 'api.views.rawimage'),
 
   url(r'^request_contributor_access/$',
       'api.views.request_contributor_access'),
