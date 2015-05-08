@@ -619,7 +619,6 @@ class Sample(models.Model):
     minerals = ManyToManyField(Mineral, through='SampleMineral')
     references = ManyToManyField(Reference, through='SampleReference')
     regions = ManyToManyField(Region, through='SampleRegion')
-    image = ManyToManyField(Image, through='SampleImage', related_name='SampleImage')
     group_access = generic.GenericRelation(GroupAccess)
     subsample_count = models.IntegerField(default=0)
     chem_analyses_count = models.IntegerField(default=0)
@@ -690,26 +689,6 @@ class SampleRegion(models.Model):
         unique_together = (('sample', 'region'),)
         db_table = u'sample_regions'
         get_latest_by = 'id'
-
-
-class SampleImage(models.Model):
-    image = models.ForeignKey('Image')
-    image_id = models.BigIntegerField(primary_key=True)
-    sample = models.ForeignKey('Sample', null=True, blank=True,
-                               related_name='sample_image')
-    subsample = models.ForeignKey('Subsample', null=True, blank=True,
-                                  related_name='sample_image')
-    image_format = models.ForeignKey(ImageFormat, null=True, blank=True)
-    image_type = models.ForeignKey(ImageType)
-    
-    
-    def __unicode__(self):
-       return u'Image #' + unicode(self.image_id)
-
-    class Meta:
-       # managed = False
-       db_table = u'images'
-       permissions = (('read_image', 'Can read image'),) 
 
 
 class SampleAliase(models.Model):
