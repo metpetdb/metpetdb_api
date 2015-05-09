@@ -18,7 +18,7 @@ from metpetdb import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
-
+from django.db.models import Q
 
 def chem_analyses_given_sample_filters(request):
     """View function to retrieve a list of chemical analysis IDs of samples
@@ -234,17 +234,14 @@ def confirm(request, conf_code):
 
 @transaction.atomic
 def rawimage(request, cksum):
-    #determine the type of checksum
-    try: image = Image.objects.get(checksum=cksum)
+    try:
+        image = Image.objects.get(
+                   Q(checksum=cksum) | Q(checksum_64x64=cksum) |
+                   Q(checksum_half=cksum) | Q(checksum_mobile=cksum)
+               )
     except:
-        try: image = Image.objects.get(checksum_64x64=cksum)
-        except:
-            try: image = Image.objects.get(checksum_half=cksum)
-            except: 
-                try: image = Image.objects.get(checksum_mobile=cksum)
-                except:
-                    return HttpResponseNotFound("No such image found.")
-    
+        return HttpResponseNotFound("No such image found.")
+
     #determine physical image location
     def get_path(checksum):
         if checksum != 'null':
