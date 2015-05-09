@@ -36,7 +36,7 @@ from .models import (
     Oxide,
     MineralRelationship,
     Element,
-    Image
+    SampleImage
 )
 
 from .specified_fields import SpecifiedFields
@@ -57,7 +57,7 @@ CLASS_MAPPING = {'regions': SampleRegion,
                  'minerals': SampleMineral,
                  'metamorphic_grades': SampleMetamorphicGrade,
                  'metamorphic_regions': SampleMetamorphicRegion,
-                 'images': Image}
+                 'images': SampleImage}
 
 
 class BaseResource(SpecifiedFields):
@@ -405,7 +405,7 @@ class SampleResource(VersionedResource, FirstOrderResource):
                                  "regions", null=True, full=True)
     references = fields.ToManyField("api.resources.ReferenceResource",
                                     "references", null=True, full=True)
-    images = fields.ToManyField("api.resources.ImageResource",
+    images = fields.ToManyField("api.resources.SampleImageResource",
                                     "images", null=True, full=True)
     class Meta:
         queryset = Sample.objects.all().distinct('sample_id')
@@ -570,7 +570,7 @@ class MineralResource(BaseResource):
                 'real_mineral': ALL_WITH_RELATIONS,
                 }
     
-class ImageResource(BaseResource):
+class SampleImageResource(BaseResource):
     #store computed image urls    
     image_data = fields.CharField() 
     image_data64x64 = fields.CharField()
@@ -581,7 +581,7 @@ class ImageResource(BaseResource):
        resource_name = 'image'
        excludes = ('checksum', 'checksum_64x64', 
                    'checksum_half', 'checksum_mobile')
-       queryset = Image.objects.all()
+       queryset = SampleImage.objects.all()
        authentication = CustomApiKeyAuth()
        ordering = ['image_id']
        allowed_methods = ['get']
