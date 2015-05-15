@@ -564,10 +564,10 @@ class Image(models.Model):
     image_id = models.BigIntegerField(primary_key=True)
     checksum = models.CharField(max_length=50)
     version = models.IntegerField()
-    sample = models.ForeignKey('Sample', null=True, blank=True,
-                               related_name='images')
-    subsample = models.ForeignKey('Subsample', null=True, blank=True,
-                                  related_name='images')
+    #sample = models.ForeignKey('Sample', null=True, blank=True,
+    #                           related_name='images')
+    #subsample = models.ForeignKey('Subsample', null=True, blank=True,
+    #                              related_name='images')
     image_format = models.ForeignKey(ImageFormat, null=True, blank=True)
     image_type = models.ForeignKey(ImageType)
     width = models.SmallIntegerField()
@@ -619,7 +619,7 @@ class Sample(models.Model):
     minerals = ManyToManyField(Mineral, through='SampleMineral')
     references = ManyToManyField(Reference, through='SampleReference')
     regions = ManyToManyField(Region, through='SampleRegion')
-    image = ManyToManyField(Image, through='SampleImage', related_name='SampleImage')
+    images = ManyToManyField(Image, through='SampleImage')
     group_access = generic.GenericRelation(GroupAccess)
     subsample_count = models.IntegerField(default=0)
     chem_analyses_count = models.IntegerField(default=0)
@@ -705,25 +705,18 @@ class SampleAliase(models.Model):
         unique_together = (('sample', 'alias'),)
 
 class SampleImage(models.Model):
-    image = models.ForeignKey('Image')
-    image_id = models.BigIntegerField(primary_key=True)
-    sample = models.ForeignKey('Sample', null=True, blank=True,
-                               related_name='sample_image')
-    subsample = models.ForeignKey('Subsample', null=True, blank=True,
-                                   related_name='sample_image')
-    image_format = models.ForeignKey(ImageFormat, null=True, blank=True)
-    image_type = models.ForeignKey(ImageType)
-    checksum = models.CharField(max_length=50)
-    checksum_64x64 = models.CharField(max_length=50)
-    checksum_half = models.CharField(max_length=50)
-    checksum_mobile = models.CharField(max_length=50, blank=True)
+    image = models.ForeignKey('Image', null=True, blank=True)
+    sample = models.ForeignKey('Sample', null=True, blank=True)
+    id = models.IntegerField(primary_key=True)
     
     def __unicode__(self):
         return u'Image #' + unicode(self.image_id)
 
     class Meta:
-        db_table = u'images'
+        db_table = u'sample_image'
+        unique_together = (('image', 'sample'),)
         permissions = (('read_image', 'Can read image'),) 
+        get_latest_by = 'id'
 
 
 class Subsample(models.Model):
@@ -738,7 +731,7 @@ class Subsample(models.Model):
     group_access = generic.GenericRelation(GroupAccess)
     chem_analyses_count = models.IntegerField(default=0)
     image_count = models.IntegerField(default=0)
-
+    images = ManyToManyField(Image, through='SubsampleImage')
     def __unicode__(self):
         return u'Subsample #' + unicode(self.subsample_id)
 
@@ -753,6 +746,19 @@ class Subsample(models.Model):
         self.subsample_id = self.subsample_id or utils.get_next_id(Subsample)
         super(Subsample, self).save(**kwargs)
 
+class SubsampleImage(models.Model):
+    image = models.ForeignKey('Image', null=True, blank=True)
+    subsample = models.ForeignKey('Subsample', null=True, blank=True)
+    id = models.IntegerField(primary_key=True)
+    
+    def __unicode__(self):
+        return u'Image #' + unicode(self.image_id)
+
+    class Meta:
+        db_table = u'subsample_image'
+        unique_together = (('image', 'subsample'),)
+        permissions = (('read_image', 'Can read image'),) 
+        get_latest_by = 'id'
 
 
 class Grid(models.Model):
@@ -776,7 +782,7 @@ class ChemicalAnalyses(models.Model):
     reference_y = models.FloatField(null=True, blank=True)
     stage_x = models.FloatField(null=True, blank=True)
     stage_y = models.FloatField(null=True, blank=True)
-    image = models.ForeignKey('Image', null=True, blank=True)
+    #image = models.ForeignKey('Image', null=True, blank=True)
     analysis_method = models.CharField(max_length=50, blank=True)
     where_done = models.CharField(max_length=50, blank=True)
     analyst = models.CharField(max_length=50, blank=True)
@@ -791,6 +797,7 @@ class ChemicalAnalyses(models.Model):
     spot_id = models.BigIntegerField()
     oxides = ManyToManyField(Oxide, through='ChemicalAnalysisOxide')
     elements = ManyToManyField(Element, through='ChemicalAnalysisElement')
+    images = ManyToManyField(Image, through='ChemicalAnalysisImage')
     group_access = generic.GenericRelation(GroupAccess)
     def __unicode__(self):
         return u'ChemicalAnalysis #' + unicode(self.chemical_analysis_id)
@@ -807,6 +814,20 @@ class ChemicalAnalyses(models.Model):
                                     utils.get_next_id(ChemicalAnalyses)
         super(ChemicalAnalyses, self).save(**kwargs)
 
+
+class ChemicalAnalysisImage(models.Model):
+    image = models.ForeignKey('Image', null=True, blank=True)
+    chemical_analysis = models.ForeignKey('ChemicalAnalyses', null=True, blank=True)
+    id = models.IntegerField(primary_key=True)
+    
+    def __unicode__(self):
+        return u'Image #' + unicode(self.image_id)
+
+    class Meta:
+        db_table = u'chemical_analyses_image'
+        unique_together = (('image', 'chemical_analysis'),)
+        permissions = (('read_image', 'Can read image'),) 
+        get_latest_by = 'id'
 
 class ChemicalAnalysisElement(models.Model):
     chemical_analysis = models.ForeignKey(ChemicalAnalyses)
