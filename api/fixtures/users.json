@@ -1,0 +1,32 @@
+[
+    {
+        "pk": 1,
+        "model": "api.User",
+        "fields": {
+            "version": 1,
+            "name": "Sibel Adali",
+            "password": "c2liZWw=",
+            "email": "sibel@cs.rpi.edu"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "api.User",
+        "fields": {
+            "version": 1,
+            "name": "John Doe",
+            "password": "am9obl9kb2VfcHdk",
+            "email": "john@doe.com"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "api.User",
+        "fields": {
+            "version": 1,
+            "name": "Jane Doe",
+            "password": "amFuZV9kb2VfcHdk",
+            "email": "jane@doe.com"
+        }
+    }
+]

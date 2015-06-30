@@ -1,0 +1,497 @@
+[
+    {
+        "pk": 28, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "adminuser", 
+            "name": "admin user", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "apiaccess", 
+            "name": "api access", 
+            "app_label": "tastypie"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "apikey", 
+            "name": "api key", 
+            "app_label": "tastypie"
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "chemicalanalyses", 
+            "name": "chemical analyses", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "chemicalanalysiselement", 
+            "name": "chemical analysis element", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "chemicalanalysisoxide", 
+            "name": "chemical analysis oxide", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "contenttype", 
+            "name": "content type", 
+            "app_label": "contenttypes"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "element", 
+            "name": "element", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "elementmineraltype", 
+            "name": "element mineral type", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "geometrycolumn", 
+            "name": "geometry column", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "georeference", 
+            "name": "georeference", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "grid", 
+            "name": "grid", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "group", 
+            "name": "group", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "groupaccess", 
+            "name": "group access", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "groupextra", 
+            "name": "group extra", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 47, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "image", 
+            "name": "image", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 48, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "imagecomment", 
+            "name": "image comment", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "imageformat", 
+            "name": "image format", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 49, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "imageongrid", 
+            "name": "image on grid", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "imagereference", 
+            "name": "image reference", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "imagetype", 
+            "name": "image type", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "logentry", 
+            "name": "log entry", 
+            "app_label": "admin"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "metamorphicgrade", 
+            "name": "metamorphic grade", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "metamorphicregion", 
+            "name": "metamorphic region", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "mineral", 
+            "name": "mineral", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "mineraltype", 
+            "name": "mineral type", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "oxide", 
+            "name": "oxide", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "oxidemineraltype", 
+            "name": "oxide mineral type", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "permission", 
+            "name": "permission", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "project", 
+            "name": "project", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 50, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "projectinvite", 
+            "name": "project invite", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 51, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "projectmember", 
+            "name": "project member", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 52, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "projectsample", 
+            "name": "project sample", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "reference", 
+            "name": "reference", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "region", 
+            "name": "region", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "rocktype", 
+            "name": "rock type", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "role", 
+            "name": "role", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "sample", 
+            "name": "sample", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "samplealiase", 
+            "name": "sample aliase", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 53, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "samplecomment", 
+            "name": "sample comment", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "samplemetamorphicgrade", 
+            "name": "sample metamorphic grade", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "samplemetamorphicregion", 
+            "name": "sample metamorphic region", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "samplemineral", 
+            "name": "sample mineral", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "samplereference", 
+            "name": "sample reference", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "sampleregion", 
+            "name": "sample region", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "session", 
+            "name": "session", 
+            "app_label": "sessions"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "site", 
+            "name": "site", 
+            "app_label": "sites"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "spatialrefsys", 
+            "name": "spatial ref sys", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "subsample", 
+            "name": "subsample", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "subsampletype", 
+            "name": "subsample type", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 54, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "uploadedfile", 
+            "name": "uploaded file", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "user", 
+            "name": "user", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "user", 
+            "name": "user", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "usersrole", 
+            "name": "users role", 
+            "app_label": "api"
+        }
+    }, 
+    {
+        "pk": 55, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "xrayimage", 
+            "name": "xray image", 
+            "app_label": "api"
+        }
+    }
+]

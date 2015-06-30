@@ -1,0 +1,14 @@
+<html>
+<body>
+  <p>
+    Hello {{ name }} - your confirmation code is {{confirmation_code}}.
+  </p>
+  <p>
+    This is an HTML email.
+  </p>
+  <p>
+    Click this link to confirm: {{ host_name }}{% url 'api.views.confirm' confirmation_code %}
+  </p>
+  </p>
+</body>
+</html>

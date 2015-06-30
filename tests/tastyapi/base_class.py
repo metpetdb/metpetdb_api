@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User as AuthUser
 from tastypie.test import ResourceTestCase, TestApiClient
 from tastypie.models import ApiKey
-from tastyapi.models import User, AuthUser, get_public_groups
+from api.models import User, AuthUser, get_public_groups
 import nose.tools as nt
 
 client = TestApiClient()

@@ -1,0 +1,72 @@
+[
+    {
+        "pk": 1,
+        "model": "api.region",
+        "fields": {
+            "name": "Sturbridge, MA and Union CT"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "api.region",
+        "fields": {
+            "name": "CT"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "api.region",
+        "fields": {
+            "name": "MA"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "api.region",
+        "fields": {
+            "name": "From Port Cartier to Mt. Reed, Quebec"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "api.region",
+        "fields": {
+            "name": "Quebec"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "api.region",
+        "fields": {
+            "name": "VT"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "api.region",
+        "fields": {
+            "name": "Burke area northeastern vermont"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "api.region",
+        "fields": {
+            "name": "Idaho"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "api.region",
+        "fields": {
+            "name": "Snow Peak & Mallard Peak region"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "api.region",
+        "fields": {
+            "name": "CA"
+        }
+    }
+]

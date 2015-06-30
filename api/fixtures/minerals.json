@@ -1,0 +1,202 @@
+[
+    {
+        "pk": 1,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 1,
+            "name": "Tectosilicates"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 2,
+            "name": "Silica"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 3,
+            "name": "Quartz"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 4,
+            "name": "Coesite"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 5,
+            "name": "Tridymite"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 6,
+            "name": "Cristobalite"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 7,
+            "name": "Feldspar"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 8,
+            "name": "Plagioclase"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 9,
+            "name": "Albite"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 10,
+            "name": "Oligoclase"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 11,
+            "name": "Andesine"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 12,
+            "name": "Labradorite"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 13,
+            "name": "Anorthite"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 14,
+            "name": "Alkali feldspar"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 15,
+            "name": "Orthoclase"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 16,
+            "name": "Sanidine"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 17,
+            "name": "Celsian"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 18,
+            "name": "Nepheline"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 19,
+            "name": "Kalsilite"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 20,
+            "name": "Leucite"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 21,
+            "name": "Sodalite"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 22,
+            "name": "Scapolite"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 23,
+            "name": "Analcite"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 24,
+            "name": "Zeolite"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "api.mineral",
+        "fields": {
+            "real_mineral": 25,
+            "name": "Sheet silicates"
+        }
+    }
+]

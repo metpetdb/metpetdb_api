@@ -1,0 +1,93 @@
+[
+    {
+        "pk": 1,
+        "model": "api.subsample",
+        "fields": {
+            "subsample_type": 1,
+            "name": "SS01",
+            "grid_id": 1,
+            "sample": 1,
+            "version": 1,
+            "public_data": "Y",
+            "user": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "api.subsample",
+        "fields": {
+            "subsample_type": 1,
+            "name": "SS01",
+            "grid_id": 1,
+            "sample": 1,
+            "version": 1,
+            "public_data": "Y",
+            "user": 1
+        }
+    },
+    {
+        "pk": 3,
+        "model": "api.subsample",
+        "fields": {
+            "subsample_type": 1,
+            "name": "SS01",
+            "grid_id": 1,
+            "sample": 2,
+            "version": 1,
+            "public_data": "Y",
+            "user": 1
+        }
+    },
+    {
+        "pk": 4,
+        "model": "api.subsample",
+        "fields": {
+            "subsample_type": 2,
+            "name": "SS01",
+            "grid_id": 3,
+            "sample": 2,
+            "version": 1,
+            "public_data": "Y",
+            "user": 1
+        }
+    },
+    {
+        "pk": 5,
+        "model": "api.subsample",
+        "fields": {
+            "subsample_type": 2,
+            "name": "SS01",
+            "grid_id": 4,
+            "sample": 2,
+            "version": 1,
+            "public_data": "Y",
+            "user": 1
+        }
+    },
+    {
+        "pk": 6,
+        "model": "api.subsample",
+        "fields": {
+            "subsample_type": 2,
+            "name": "SS01",
+            "grid_id": 5,
+            "sample": 3,
+            "version": 1,
+            "public_data": "Y",
+            "user": 1
+        }
+    },
+    {
+        "pk": 7,
+        "model": "api.subsample",
+        "fields": {
+            "subsample_type": 2,
+            "name": "SS01",
+            "grid_id": 5,
+            "sample": 3,
+            "version": 1,
+            "public_data": "Y",
+            "user": 1
+        }
+    }
+]

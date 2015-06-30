@@ -1,0 +1,156 @@
+[
+    {
+        "pk": 10, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Chlorite zone"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Biotite zone"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Garnet zone"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Staurolite zone"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Staurolite-kyanite zone"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Kyanite zone"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Sillimanite zone"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Andalusite zone"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Sillimanite-K feldspar zone"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Garnet-cordierite zone"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Migmatite zone"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Zeolite facies"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Prehnite-pumpellyite facies"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Greenschist facies"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Amphibolite facies"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Granulite facies"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Blueschist facies"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Eclogite facies"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Hornfels facies"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Ultra high pressure facies"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Ultra high temperature facies"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "api.metamorphicgrade",
+        "fields": {
+            "name": "Epidote amphibolite facies"
+        }
+    }
+]
