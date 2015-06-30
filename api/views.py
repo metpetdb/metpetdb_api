@@ -12,13 +12,12 @@ from django.contrib.auth.models import User as AuthUser
 from django.contrib.auth.hashers import make_password
 from tastypie.models import ApiKey
 
-from .models import User, generate_confirmation_code
+from .models import User, generate_confirmation_code, Image
 from .api import MetpetAPI
 from metpetdb import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
-
 
 def chem_analyses_given_sample_filters(request):
     """View function to retrieve a list of chemical analysis IDs of samples
@@ -232,6 +231,14 @@ def confirm(request, conf_code):
     else:
         return HttpResponse("Unable to confirm your email address.")
 
+@transaction.atomic
+def rawimage(request, cksum):
+    try:
+        path = settings.MEDIA_ROOT + cksum[0:2] + '/' + cksum[2:4] + '/' + cksum[4:]
+        image_data = open(path, "rb").read()
+        return HttpResponse(image_data, content_type="image/png")
+    except: 
+        return HttpResponseNotFound("Unable to open image file for reading")
 
 @transaction.atomic
 def request_contributor_access(request):
